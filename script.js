@@ -3,7 +3,6 @@ const profile = document.querySelector('.profile');
 // const profile = document.querySelector('profile');
 
 shareButton.addEventListener('click', () => {
-    profile.classList.toggle('active');
-    
+    profile.classList.toggle('expanded');
     console.log('yah');
 })

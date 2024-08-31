@@ -11,22 +11,20 @@ body {
     height: 100vh;
 }
 
-h2{
+h1{
     color: hsl(217, 19%, 35%);
     text-align: left;
     font-family: "Manrope", sans-serif;
-    
+    font-size: 30px
 }
 
 .text {
     margin:20px 0 0 0; 
-    padding: 10px;  
 }
 
 .desc {
     color: hsl(214, 17%, 51%);
-    margin-top: 10px;
-    
+    margin-top: 15px;
 }
 
 .profile {
@@ -34,14 +32,16 @@ h2{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    margin:15px 0 0 0;
+    /* padding: 15px; */
+    margin-top: 15px;
+    height: 50px;
 }
 
 .p{
     display: flex;
     align-items: center;
     column-gap: 12px;
+    z-index: 1;
 }
 
 .info span {
@@ -51,12 +51,14 @@ h2{
 
 .share-button{
     position: absolute;
-    right: 0;
+    right: 5px;
+    top: 0;
     background-color: hsl(214, 17%, 51%);
     width: 50px;
     height: 50px;
     border: none;
     border-radius: 100%;
+    z-index: 2;
 }
 
 .share-button i {
@@ -67,20 +69,28 @@ h2{
 
 .profile-img {
     border-radius: 100%;
-    width: 70px;
+    width: 50px;
 }
 
-@media (max-width: 375px) {
+/* .profile.expanded .share {
+    display: flex;
+} */
+.share p {
+    text-transform: uppercase;
+    font-size: 20px;
+    color: hsl(212, 23%, 69%);
+}
+
+@media (max-width: 400px) {
     .drawer {
         width: 100%;
         border-radius: 2px;
     }
 
     .share {
-        width: 80%;
-        display: flex;
+        width: 0px;
+        display: none;
         justify-content: space-between;
-        z-index: 10;
     }
 
     .social-icons {
@@ -91,19 +101,81 @@ h2{
         color: white;
         font-size: 30px;
     }
-
-    .profile.active {
-        width: 0;
-        
-    }
-
-    .share p {
-        text-transform: uppercase;
-        font-size: 20px;
-        color: hsl(212, 23%, 69%);
-    }
-
-    .profile {
+    
+    .profile.expanded {
         background-color: hsl(217, 19%, 35%);
+    }
+
+    .profile.expanded .share{
+        width: 80%;
+        display: flex;
+        background-color: hsl(217, 19%, 35%);
+        transition: flex 0.5s ease-in;
+        z-index: 2;
+    }
+
+    .profile.expanded .p {
+        display: none;
+    }
+
+}
+
+@media (min-width: 650px) {
+    .card {
+        width: 80%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        margin:0 auto;
+        border: none;
+        border-radius: 5px;
+        transform: translate(-10%, 40%);
+        box-shadow: 10px;
+    }
+
+    .drawer {
+        width: 50%;
+    }
+
+    .text{
+        padding: 10px;
+    }
+
+    .share {
+        display: none;
+    }
+
+    .profile.expanded .share-button {
+        position: relative;
+    }
+
+    .profile.expanded .share{
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: translate(30%, -120%);
+        background-color: hsl(217, 19%, 35%);
+        width: 220px;
+        z-index: 10;
+        display: flex;
+        justify-content: space-around;
+        color: #ffffff;
+        font-size: 25px;
+        padding: 5px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 15px #888888;
+    }
+
+    .profile.expanded .share::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 6px;
+        border-style: solid;
+        border-color: hsl(217, 19%, 35%) transparent transparent transparent;
+        
     }
 }
