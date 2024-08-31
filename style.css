@@ -59,12 +59,12 @@ h1{
     border: none;
     border-radius: 100%;
     z-index: 2;
+    cursor: pointer;
 }
 
 .share-button i {
     font-size: 15px;
     color: #ffffff;
-    
 }
 
 .profile-img {
@@ -154,7 +154,7 @@ h1{
         position: absolute;
         right: 0;
         top: 0;
-        transform: translate(30%, -120%);
+        transform: translate(36%, -140%);
         background-color: hsl(217, 19%, 35%);
         width: 220px;
         z-index: 10;
@@ -173,9 +173,8 @@ h1{
         top: 100%;
         left: 50%;
         transform: translateX(-50%);
-        border-width: 6px;
+        border-width: 10px;
         border-style: solid;
-        border-color: hsl(217, 19%, 35%) transparent transparent transparent;
-        
+        border-color: hsl(217, 19%, 35%) transparent transparent transparent;   
     }
 }
